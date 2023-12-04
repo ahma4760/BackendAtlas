@@ -39,7 +39,7 @@ public class SecurityConfiguration implements WebMvcConfigurer {
                 // "antMathcers" comes from Apache Ant build system.
                 // Since Spring 3, the next line replaces the old one:
                 // .authorizeRequests().antMatchers("/login", "/signup").permitAll()
-                .authorizeHttpRequests().requestMatchers("/login", "/signup").permitAll()
+                .authorizeHttpRequests().requestMatchers("/login", "/signup", "/dishes").permitAll()
                 .anyRequest().authenticated()
                 .and()
                 .exceptionHandling().authenticationEntryPoint(authenticationEntryPoint)
@@ -63,5 +63,4 @@ public class SecurityConfiguration implements WebMvcConfigurer {
                 .allowedMethods("GET", "POST", "PUT", "DELETE", "HEAD", "OPTIONS") // decide which methods to allow
                 .allowCredentials(true);
     }
-
 }
