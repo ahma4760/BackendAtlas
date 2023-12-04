@@ -6,7 +6,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
 @Entity
-public class Pizza {
+public class Dish {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,10 +16,10 @@ public class Pizza {
     private String imagePath;
     private double price;
 
-    public Pizza() {
+    public Dish() {
     }
 
-    public Pizza(int id, String title, String ingredients, String imagePath, double price) {
+    public Dish(int id, String title, String ingredients, String imagePath, double price) {
         this.id = id;
         this.title = title;
         this.ingredients = ingredients;
