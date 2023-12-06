@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-public class DishController {
+public class ProductController {
     private final ProductRepository productRepository;
 
     @Autowired
-    public DishController(ProductRepository productRepository) {
+    public ProductController(ProductRepository productRepository) {
         this.productRepository = productRepository;
     }
 
