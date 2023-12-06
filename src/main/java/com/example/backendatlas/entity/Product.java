@@ -14,15 +14,20 @@ public class Product {
     private String imagePath;
     private double price;
 
+    @ManyToOne
+    @JoinColumn(name = "category_id")
+    private Category category;
+
     public Product() {
     }
 
-    public Product(int id, String title, String ingredients, String imagePath, double price) {
+    public Product(int id, String title, String ingredients, String imagePath, double price, Category category) {
         this.id = id;
         this.title = title;
         this.ingredients = ingredients;
         this.imagePath = imagePath;
         this.price = price;
+        this.category = category;
     }
     public int getId() {
         return id;
@@ -62,5 +67,13 @@ public class Product {
 
     public void setPrice(double price) {
         this.price = price;
+    }
+
+    public Category getCategory() {
+        return category;
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
     }
 }
