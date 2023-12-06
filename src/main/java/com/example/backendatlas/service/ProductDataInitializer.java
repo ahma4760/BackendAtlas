@@ -1,31 +1,31 @@
 package com.example.backendatlas.service;
 
-import com.example.backendatlas.entity.Dish;
-import com.example.backendatlas.repository.DishRepository;
+import com.example.backendatlas.entity.Product;
+import com.example.backendatlas.repository.ProductRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class DishDataInitializer implements CommandLineRunner {
+public class ProductDataInitializer implements CommandLineRunner {
 
-    private final DishRepository dishRepository;
+    private final ProductRepository productRepository;
 
     @Autowired
-    public DishDataInitializer(DishRepository dishRepository) {
-        this.dishRepository = dishRepository;
+    public ProductDataInitializer(ProductRepository productRepository) {
+        this.productRepository = productRepository;
     }
 
     @Override
     public void run(String... args) throws Exception {
-        Dish dish1 = new Dish(
+        Product product1 = new Product(
                 1,
                 "Hawaii",
                 "Skinke, ost, ananas",
                 "https://mambeno.dk/wp-content/uploads/2016/06/Mambenos-hawaiipizza.jpg",
                 58.0
         );
-        Dish dish2 = new Dish(
+        Product product2 = new Product(
                 2,
                 "Margherita",
                 "Ost, tomat",
@@ -33,7 +33,7 @@ public class DishDataInitializer implements CommandLineRunner {
                 40.0
         );
 
-        dishRepository.save(dish1);
-        dishRepository.save(dish2);
+        productRepository.save(product1);
+        productRepository.save(product2);
     }
 }
