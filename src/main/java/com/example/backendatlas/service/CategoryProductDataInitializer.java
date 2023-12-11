@@ -54,11 +54,20 @@ public class CategoryProductDataInitializer implements CommandLineRunner {
                 12.0,
                 category2
         );
+        Product product4 = new Product(
+                4,
+                "Pepsi",
+                null,
+                "https://sushiya.dk/wp-content/uploads/2022/07/cocacola-can.jpg",
+                12.0,
+                category2
+        );
 
         categoryRepository.save(category1);
         categoryRepository.save(category2);
         productRepository.save(product1);
         productRepository.save(product2);
         productRepository.save(product3);
+        productRepository.save(product4);
     }
 }
