@@ -20,6 +20,7 @@ public class JwtTokenManager {
     // aha: Below is the server's private key. Which is used to generate new tokens. Length: Minimum 512 bits.
     // Which corresponds to minimum 86 characters in cleartext.
     @Value("${secret}")
+    //@Value("secret=!\"#¤%((#JegharvalgtatlaveenMEGAlangmiljøvariabel?\\=\\=)(/(/&%")
     private String jwtSecret;
     public String generateJwtToken(UserDetails userDetails) {
         System.out.println("TokenManager generateJwtToken(UserDetails) call: 7");
