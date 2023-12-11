@@ -2,8 +2,10 @@ package com.example.backendatlas.service;
 
 import com.example.backendatlas.entity.Category;
 import com.example.backendatlas.entity.Product;
+import com.example.backendatlas.entity.User;
 import com.example.backendatlas.repository.CategoryRepository;
 import com.example.backendatlas.repository.ProductRepository;
+import com.example.backendatlas.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
@@ -13,11 +15,13 @@ public class CategoryProductDataInitializer implements CommandLineRunner {
 
     private final ProductRepository productRepository;
     private final CategoryRepository categoryRepository;
+    private final UserRepository userRepository;
 
     @Autowired
-    public CategoryProductDataInitializer(ProductRepository productRepository, CategoryRepository categoryRepository) {
+    public CategoryProductDataInitializer(ProductRepository productRepository, CategoryRepository categoryRepository, UserRepository userRepository) {
         this.productRepository = productRepository;
         this.categoryRepository = categoryRepository;
+        this.userRepository = userRepository;
     }
 
     @Override
@@ -63,11 +67,17 @@ public class CategoryProductDataInitializer implements CommandLineRunner {
                 category2
         );
 
+        User user1 = new User(
+                "User",
+                "1234"
+        );
+
         categoryRepository.save(category1);
         categoryRepository.save(category2);
         productRepository.save(product1);
         productRepository.save(product2);
         productRepository.save(product3);
         productRepository.save(product4);
+        userRepository.save(user1);
     }
 }
