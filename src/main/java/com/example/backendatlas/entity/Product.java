@@ -2,8 +2,10 @@ package com.example.backendatlas.entity;
 
 import jakarta.persistence.*;
 
+import java.util.List;
+
 @Entity
-@Table(name="dishes")
+@Table(name="products")
 public class Product {
 
     @Id
