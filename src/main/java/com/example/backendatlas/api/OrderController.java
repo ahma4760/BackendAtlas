@@ -1,5 +1,7 @@
 package com.example.backendatlas.api;
 
+import com.example.backendatlas.dto.OrdersConverter;
+import com.example.backendatlas.dto.OrdersDTO;
 import com.example.backendatlas.entity.Orders;
 import com.example.backendatlas.repository.OrdersRepository;
 import com.example.backendatlas.service.OrderService;
@@ -17,16 +19,18 @@ import java.util.Optional;
 public class OrderController {
     OrdersRepository ordersRepository;
     OrderService orderService;
+    OrdersConverter ordersConverter;
 
     @Autowired
-    public OrderController(OrdersRepository ordersRepository, OrderService orderService) {
+    public OrderController(OrdersRepository ordersRepository, OrderService orderService, OrdersConverter ordersConverter) {
         this.ordersRepository = ordersRepository;
         this.orderService = orderService;
+        this.ordersConverter = ordersConverter;
     }
 
     @PostMapping("/order")
-    public ResponseEntity<Orders> insertOrder(@RequestBody Orders orders) {
-        Orders createdOrder = orderService.CreateOrder(orders);
+    public ResponseEntity<Orders> insertOrder(@RequestBody OrdersDTO ordersDTO) {
+        Orders createdOrder = orderService.CreateOrder(ordersConverter.toEntity(ordersDTO));
         return new ResponseEntity<>(createdOrder, HttpStatus.CREATED);
     }
 
